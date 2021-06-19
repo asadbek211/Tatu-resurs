@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_nastroyka.*
 
 class NastroykaActivity : AppCompatActivity() {
          val fanlar_kt: Array<String> = arrayOf(
-             "DARS YO'Q","WEB DASTURLASH",
+             "WEB DASTURLASH",
              "ALGORITMLARNI LOYIXALASH",
              "KOMPYUTERNI TASHKIL ETISH",
              "TALIMGA KIRISH",

@@ -24,21 +24,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(),View.OnClickListener {
     private val sharedPrefFile = "prefsFIle"
     private val POSITION = "position"
-    private val gruppalar: Array<String> = arrayOf(
-        "YO'NALISHNI TANLANG",
-        "KASBIY TA'LIM",
-        "AXBOROT XAVFSIZLIGI",
-        "TELEKOMMUNIKATSIYA TEXNOLOGIYALARI",
-        "DASTURIY INJINERING",
-        "KOMPYUTER INJINERING",
-        "AT-SERVIS"
-    )
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    private val ctivityInfo.SCREEN_ORIENTATION_PORTRAIT
         val reg: SharedPreferences = getSharedPreferences("reg", Context.MODE_PRIVATE)
         val key = reg.getInt("reg",0)
         if (key != 1){
@@ -48,20 +34,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         val adapter = ArrayAdapter(this, R.layout.spinner_item, gruppalar)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
-        val prefs: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = prefs.edit()
-        spinner.setSelection(prefs.getInt(POSITION, 0))
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                editor.putInt(POSITION, position)
-                editor.apply()
-
-            }
+        val pref
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -81,17 +54,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         val prefs: SharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         val key = prefs.getInt(POSITION,0)
         if (key==0){
-            Toast.makeText(this,"Siz yo'nalish tanlamadingiz",Toast.LENGTH_SHORT).show()
-        }else{
-            if (view?.id == R.id.settings) {
-                startActivity(Intent(this, NastroykaActivity::class.java))
-            } else if (view?.id == R.id.statistika) {
-                val intent = Intent(this, ActivitySayt::class.java)
-                intent.putExtra("sayt1", "https://inter.tatunf.uz/index.php?st=6")
-
-                startActivity(intent)
-            } else if (view?.id == R.id.savollar) {
-                val intent = Intent(this, ActivitySayt::class.java)
+            Ttent(this, ActivitySayt::class.java)
                 intent.putExtra("sayt1", "https://inter.tatunf.uz/index.php?st=21")
 
                 startActivity(intent)
@@ -111,16 +74,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             takePermission()
         }
     }
-    private fun isPermissionGranted():Boolean{
-        if (Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
-            return Environment.isExternalStorageManager()
-        }else{
-                val readExternalStorage:Int = ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                )
-            return readExternalStorage== PackageManager.PERMISSION_GRANTED
-        }
     }
     private fun takePermission() {
         if (Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
@@ -137,15 +90,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         }else{
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                101
-            )
-        }
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode== RESULT_OK){
             if (requestCode==100){
                 if (Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
                     if (Environment.isExternalStorageManager()){
