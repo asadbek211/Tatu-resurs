@@ -21,12 +21,7 @@ public class ActivitySayt extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sayt);
-        SharedPreferences reg  = getSharedPreferences("reg", Context.MODE_PRIVATE);
-        int key = reg.getInt("reg",0);
-        if (key != 1){
-            register();}
-        String saytId = getIntent().getStringExtra("sayt1");
+        se.getStringExtra("sayt1");
         sayt = findViewById(R.id.sayt);
 
         WebSettings web = sayt.getSettings();
@@ -48,20 +43,7 @@ public class ActivitySayt extends Activity {
                                         String contentDisposition, String mimetype,
                                         long contentLength) {
 
-                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
-                request.allowScanningByMediaScanner();
-
-                request.setNotificationVisibility(
-                        DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-
-                request.setDestinationInExternalPublicDir(
-                        Environment.DIRECTORY_DOWNLOADS,    //Download folder
-                        url.replace(
-                                "https://inter.tatunf.uz/Elib_baza/Komplex/", ""
-                        ));                        //Name of file
-
-
-                DownloadManager dm = (DownloadManager) getSystemService(
+                Dr) getSystemService(
                         DOWNLOAD_SERVICE);
 
                 dm.enqueue(request);
@@ -79,23 +61,6 @@ public class ActivitySayt extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && this.sayt.canGoBack()) {
             this.sayt.goBack();
-            return true;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
-
-    private void register() {
-        SharedPreferences prefs  = getSharedPreferences("reg", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor  = prefs.edit();
-        AlertDialog.Builder message = new AlertDialog.Builder(this);
-        message.setMessage("Saytga Login parol kiriting va Назад knopkasini bosib orqaga qayting va sozlamalar bo'limidan dars jadvalini tuzing")
-                .setCancelable(false)
-                .setPositiveButton("Ok", (dialog, which) -> {
-                    editor.putInt("reg", 1);
-                    editor.apply();
-                    dialog.dismiss();
-                })
-                .create().show();
+    (false)how();
     }
 }
