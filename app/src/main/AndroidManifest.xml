@@ -4,9 +4,10 @@
     package="com.bizmiz.taturesurs">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
@@ -19,10 +20,11 @@
         android:theme="@style/Theme.TATUResurs"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
+        <activity android:name=".MainActivity2"></activity>
         <activity android:name=".NastroykaActivity" />
-        <activity android:name=".ActivitySayt"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ActivitySayt"
+            android:screenOrientation="portrait" />
         <activity android:name=".ConteinerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
