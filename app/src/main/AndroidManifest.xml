@@ -22,9 +22,6 @@
         tools:targetApi="m">
         <activity android:name=".MainActivity2"></activity>
         <activity android:name=".NastroykaActivity" />
-        <activity
-            android:name=".ActivitySayt"
-            android:screenOrientation="portrait" />
         <activity android:name=".ConteinerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

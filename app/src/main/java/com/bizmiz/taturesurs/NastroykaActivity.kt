@@ -15,8 +15,8 @@ class NastroykaActivity : AppCompatActivity() {
              "DARS YO'Q","WEB DASTURLASH",
              "ALGORITMLARNI LOYIXALASH",
              "KOMPYUTERNI TASHKIL ETISH",
-             "TALIMGA KIRISH",
-             "EXTIMOLLIK VA STATISTIKA"
+             "TALIMGA KIRISH"
+
     )
     val fanlar_di: Array<String> = arrayOf(
         "DARS YO'Q","WEB DASTURLASH",

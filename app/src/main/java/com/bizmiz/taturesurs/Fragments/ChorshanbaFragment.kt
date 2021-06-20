@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.bizmiz.taturesurs.ActivitySayt
 import com.bizmiz.taturesurs.NastroykaActivity
 import com.bizmiz.taturesurs.R
 import kotlinx.android.synthetic.main.fragment_chorshanba.*
